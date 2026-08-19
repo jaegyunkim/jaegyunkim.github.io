@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta
     http-equiv="refresh"
@@ -9,6 +10,93 @@
   >
 
   <title>오늘의낚시</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --foam-50: #F7FDFF;
+      --ink-900: #0E2A38;
+      --ink-600: #4A6B75;
+      --sun-500: #FFB020;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      width: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh;
+      margin: 0;
+      padding: 32px calc(20px + env(safe-area-inset-right)) 32px calc(20px + env(safe-area-inset-left));
+      background: var(--foam-50);
+      color: var(--ink-900);
+      font-family: 'Noto Sans KR', sans-serif;
+      text-align: center;
+    }
+
+    .redirect-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .spinner {
+      width: 34px;
+      height: 34px;
+      border: 3px solid rgba(14, 42, 56, 0.12);
+      border-top-color: var(--sun-500);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .spinner {
+        animation: none;
+      }
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: clamp(15px, 4vw, 17px);
+      line-height: 1.6;
+      color: var(--ink-600);
+      word-break: keep-all;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 999px;
+      background: var(--sun-500);
+      color: var(--ink-900);
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      word-break: keep-all;
+    }
+  </style>
 
   <script>
     window.location.replace(
@@ -18,11 +106,12 @@
 </head>
 
 <body>
-  <p>
-    페이지를 이동하고 있습니다.
+  <div class="redirect-box">
+    <div class="spinner" aria-hidden="true"></div>
+    <p>오늘의낚시로 이동하고 있습니다.</p>
     <a href="https://jaegyunkim.github.io/mobile_decide_fishing/">
-      이동하지 않으면 여기를 클릭하세요.
+      이동하지 않으면 여기를 눌러주세요
     </a>
-  </p>
+  </div>
 </body>
 </html>
